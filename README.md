@@ -7,7 +7,7 @@ The efficiency of a sorting algorithm can be captured from multiple different an
 
 This is why i will be focusing on the comparison complexity, it is not dependent on the hardware and the implementation. Additionally it is a good predictor of the computational complexity of an algorithm.
 
-## Dataset proporties
+## Dataset properties
 
 In order to explore the relationship between array formation and algorithm efficency, a wide variety of data is needed. Working with the [Kaggle Api](https://www.kaggle.com/docs/api) gives us a way to fetch realistic data in a fast and automated way. Taking Data from a Datascience platform has the advantage that the columns are not arranged in a random way. For instance: Numbers can correlate with other sorted columns, which can make them "almost" sorted. This results in diverse ranges and combinations of presortedness kinds. To be able to characterize different kinds of presortedness we have to define it formally:
 
@@ -34,3 +34,57 @@ Some relation of presortedness metrics can be visualized by this graph from O. P
 ![Presortedness graphic](https://i.imgur.com/SnTLZeh.png)
 
 To get the maximum amount of infomation about the way an array is arranged it makes sense to have a well distributed set of metrics.
+
+### REM(X) / Number of Deletions
+Minimum number of elements that need to be removed from an array to obtain a sorted sequence. It can be: |X| - 1 if the sequence is arranged in a reversed order.
+
+```python
+def deletions(arr):
+    def ceil_index(sub, val):
+        l, r = 0, len(sub)-1
+        while l <= r:
+            mid = (l + r) // 2
+            if sub[mid] >= val:
+                r = mid - 1
+            else:
+                l = mid + 1
+        return l
+ 
+    sub = [arr[0]]
+    for i in range(1, len(arr)):
+        if arr[i] >= sub[-1]:
+            sub.append(arr[i])
+        else:
+            sub[ceil_index(sub, arr[i])] = arr[i]
+ 
+    return len(arr) - len(sub)
+```
+
+### INV(X) / Number of Inversions
+Minimum number of inversions in X, where one inversion is one pair of elements that are not in order. It can be: |X| * (|X| - 1) / 2 when X is arranged in reverse order.
+
+```python
+def inversions(arr):
+    count = 0
+
+    for key in range(len(arr)):
+        for j in range(key):
+            if arr[key] < arr[j]:
+                count += 1
+
+    return count
+```
+
+### RUNS(X) / Number of Runs
+Minimum number of increasing sequences in an array minus one. |X| - 1 when X is arranged in reverse order.
+
+```python
+def runs(arr):
+    count = 0
+
+    for key in range(1,len(arr)):
+        if arr[key] < arr[key-1]:
+            count += 1
+
+    return count
+```
