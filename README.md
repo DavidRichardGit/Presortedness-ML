@@ -27,6 +27,6 @@ Similarly to the general adaptivity of an algorithm an adaptive algorithm with r
 
 Some relation of presortedness metrics can be visualized by this graph from O. Petersson and A. Moffat in _A framework for adapative sorting_. The metric on the upper node is algorithmically finer than the one connected lower node. If a metric f<sub>1</sub> is algorithmically finer than another metric f<sub>2</sub> it means, that an f<sub>1</sub> optimal sorting algorithm is automatically f<sub>2</sub> optimal.
 
-![Image Alt Text]([https://imgur.com/SnTLZeh](https://imgur.com/a/nWjvzMS))
+!(https://imgur.com/a/nWjvzMS)
 
 To get the maximum amount of infomation about the way an array is arranged it makes sense to have a well distributed set of metrics.
