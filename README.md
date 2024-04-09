@@ -35,7 +35,7 @@ Some relation of presortedness metrics can be visualized by this graph from O. P
 
 ![Presortedness graphic](https://i.imgur.com/SnTLZeh.png)
 
-To get the maximum amount of infomation about the way an array is arranged it makes sense to have a well distributed set of metrics.
+To get the maximum amount of information about the way an array is arranged it makes sense to have a well distributed set of metrics.
 
 ### REM(X) / Number of Deletions
 Minimum number of elements that need to be removed from an array to obtain a sorted sequence. It can be: |X| - 1 if the sequence is arranged in a reversed order.
