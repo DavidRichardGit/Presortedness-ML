@@ -7,6 +7,10 @@ The efficiency of a sorting algorithm can be captured from multiple different an
 
 This is why i will be focusing on the comparison complexity, it is not dependent on the hardware and the implementation. Additionally it is a good predictor of the computational complexity of an algorithm.
 
+## Dataset proporties
+
+In order to explore the relationship between array formation and algorithm efficency, a wide variety of data is needed. Working with the [Kaggle Api](https://www.kaggle.com/docs/api) gives us a way to fetch realistic data in a fast and automated way. Taking Data from a Datascience platform has the advantage that the columns are not arranged in a random way. For instance: Numbers can correlate with other sorted columns, which can make them "almost" sorted. This results in diverse ranges and combinations of presortedness kinds. To be able to characterize different kinds of presortedness we have to define it formally:
+
 ## Presortedness
 
 For a sorting algorithm to be considered optimal for a presorted array the algorithm has to be adaptive. Adaptive means that the algorithm performs asymptotically optimal on an already sorted array. 
