@@ -1,6 +1,8 @@
 # Presortedness-ML
 Predicting the optimal sorting algorithm for specific arrays with given presortedness metrics
 
+[latest ML results](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel.ipynb)
+
 ## Optimality of a sorting algorithm
 
 The efficiency of a sorting algorithm can be captured from multiple different angles. The fastest might not always be the first choice, since there are other important measures of an algorithm, such as memory complexity, stability or wheter an algorithm can handle a constant stream of input or not. The time complexity is hard to inspect, because there are many factors playing into it: the type of data, the size of the data, the cost of comparing and swapping values, the hardware etc. Another aspect which makes it hard to investigate the time complexity is the implementation of the algorithm. Comparing any self-implemented sorting algorithm (can be the most efficient one) in python to the .sort() function that uses timsort does not make sense, since timsort will outperform by a large margin. This is due to the fact that the .sort() function is written in C, highly optimized and doesn't have to be interpreted line-by-line (see [here](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/pythonTimsort%20(2).ipynb)).
