@@ -1,6 +1,8 @@
 import os
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
+np.random.seed(42)
 
 os.getcwd()
 
@@ -19,9 +21,11 @@ for file_name in os.listdir(dataset_directory):
 print("amount of dataframes imported:")
 print(len(dataset_dfs))
 
+ARRAY_SIZE = 200
+
 for key, df in dataset_dfs.items():
     for column in df.columns:
-        if not df[column].apply(lambda x: isinstance(x, (int, float))).all():
+        if not df[column].apply(lambda x: isinstance(x, (int, float))).all() or len(df[column].values) < ARRAY_SIZE:
             df.drop(column, axis=1, inplace=True)
             
-    dataset_dfs[key] = df.dropna().head(30)
+    dataset_dfs[key] = df.dropna().head(ARRAY_SIZE)
