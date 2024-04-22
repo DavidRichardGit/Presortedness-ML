@@ -62,6 +62,20 @@ def deletions(arr):
     return len(arr) - len(sub)
 ```
 
+### RUNS(X) / Number of Runs
+Minimum number of increasing sequences in an array minus one. |X| - 1 when X is arranged in reverse order.
+
+```python
+def runs(arr):
+    count = 0
+
+    for key in range(1,len(arr)):
+        if arr[key] < arr[key-1]:
+            count += 1
+
+    return count
+```
+
 ### INV(X) / Number of Inversions
 Minimum number of inversions in X, where one inversion is one pair of elements that are not in order. It can be: |X| * (|X| - 1) / 2 when X is arranged in reverse order.
 
@@ -77,16 +91,20 @@ def inversions(arr):
     return count
 ```
 
-### RUNS(X) / Number of Runs
-Minimum number of increasing sequences in an array minus one. |X| - 1 when X is arranged in reverse order.
+### DIS(X) / Maximum Distance of inversion
+Maximum distance of an inversion, where one inversion is one pair of elements that are not in order. It can be: |X| - 1 when the last element of X is smaller than the first element of X.
 
 ```python
-def runs(arr):
-    count = 0
+def max_dist_inversion(arr):
+    c_max_dist = 0
 
-    for key in range(1,len(arr)):
-        if arr[key] < arr[key-1]:
-            count += 1
+    for key in range(len(arr)):
+        for j in range(key):
+            if arr[key] < arr[j]:
+                c_max_dist = max(key-j,c_max_dist)
 
-    return count
+    return c_max_dist
 ```
+
+### INV_DIS(X) / Number of Inversions combined with Maximum Distance of inversion
+Minimum number of inversions in X and maximum distance of an inversion can easily be combined:
