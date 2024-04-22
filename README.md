@@ -15,7 +15,7 @@ This is why i will be focusing on the comparison complexity, it is not dependent
 
 In order to explore the relationship between array formation and algorithm efficency, a wide variety of data is needed. Working with the [Kaggle Api](https://www.kaggle.com/docs/api) gives us a way to fetch realistic data in a fast and automated way. Taking Data from a Datascience platform has the advantage that the columns are not arranged in a random way. For instance: Numbers can correlate with other sorted columns, which can make them "almost" sorted. This results in diverse ranges and combinations of presortedness kinds. To be able to characterize different kinds of presortedness we have to define it formally:
 
-## Presortedness
+## Presortedness :1234:
 
 For a sorting algorithm to be considered optimal for a presorted array the algorithm has to be adaptive. Adaptive means that the algorithm performs asymptotically optimal on an already sorted array. 
 Arrays of numbers can be sorted or almost sorted in different ways. Measures of presortedness helps us describe how sequences are arranged to get insight about the data.
@@ -39,7 +39,7 @@ Some relation of presortedness metrics can be visualized by this graph from O. P
 
 To get the maximum amount of information about the way an array is arranged it makes sense to have a well distributed set of metrics.
 
-### REM(X) / Number of Deletions
+### REM(X) / Number of Deletions :x:
 Minimum number of elements that need to be removed from an array to obtain a sorted sequence. It can be: |X| - 1 if the sequence is arranged in a reversed order.
 
 ```python
@@ -64,7 +64,7 @@ def deletions(arr):
     return len(arr) - len(sub)
 ```
 
-### RUNS(X) / Number of Runs
+### RUNS(X) / Number of Runs :runner:
 Minimum number of increasing sequences in an array minus one. |X| - 1 when X is arranged in reverse order.
 
 ```python
@@ -78,7 +78,7 @@ def runs(arr):
     return count
 ```
 
-### INV(X) / Number of Inversions
+### INV(X) / Number of Inversions :left_right_arrow:
 Minimum number of inversions in X, where one inversion is one pair of elements that are not in order. It can be: |X| * (|X| - 1) / 2 when X is arranged in reverse order.
 
 ```python
@@ -93,7 +93,7 @@ def inversions(arr):
     return count
 ```
 
-### DIS(X) / Maximum Distance of inversion
+### DIS(X) / Maximum Distance of inversion :repeat:
 Maximum distance of an inversion, where one inversion is one pair of elements that are not in order. It can be: |X| - 1 when the last element of X is smaller than the first element of X.
 
 ```python
@@ -108,7 +108,7 @@ def max_dist_inversion(arr):
     return c_max_dist
 ```
 
-### INV_DIS(X) / Number of Inversions combined with Maximum Distance of inversion
+### INV_DIS(X) / Number of Inversions combined with Maximum Distance of inversion :left_right_arrow: :repeat:
 Minimum number of inversions in X and maximum distance of an inversion can easily be combined:
 
 ```python
