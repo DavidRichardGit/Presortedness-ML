@@ -1,7 +1,8 @@
 # Presortedness-ML
 Predicting the optimal sorting algorithm for specific arrays with given presortedness metrics
 
-[latest ML results](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel.ipynb)
+[Predicting Algorithms given all presortedness metrics of full array](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel_fullArray.ipynb)
+[Predicting Algorithms minimizing amount of comparisons needed for sorting + presortedness calculation](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel.ipynb)
 
 ## Optimality of a sorting algorithm
 
