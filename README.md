@@ -1,17 +1,17 @@
-# Presortedness-ML 
-Predicting the optimal sorting algorithm for specific arrays with given presortedness metrics
+# Presortedness-ML :1234:
+Predicting the optimal sorting algorithm for specific arrays with given presortedness metrics :chart_with_upwards_trend:
 
-:chart_with_upwards_trend: *Results:* :chart_with_upwards_trend:
+Results:
 - [Predicting Algorithms given all presortedness metrics of full array](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel_fullArray.ipynb)
 - [Predicting Algorithms minimizing amount of comparisons needed for sorting + presortedness calculation](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel.ipynb)
 
-## Optimality of a sorting algorithm
+## Optimality of a sorting algorithm :100:
 
 The efficiency of a sorting algorithm can be captured from multiple different angles. The fastest might not always be the first choice, since there are other important measures of an algorithm, such as memory complexity, stability or wheter an algorithm can handle a constant stream of input or not. The time complexity is hard to inspect, because there are many factors playing into it: the type of data, the size of the data, the cost of comparing and swapping values, the hardware etc. Another aspect which makes it hard to investigate the time complexity is the implementation of the algorithm. Comparing any self-implemented sorting algorithm (can be the most efficient one) in python to the .sort() function that uses timsort does not make sense, since timsort will outperform by a large margin. This is due to the fact that the .sort() function is written in C, highly optimized and doesn't have to be interpreted line-by-line (see [here](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/pythonTimsort%20(2).ipynb)).
 
 This is why i will be focusing on the comparison complexity, it is not dependent on the hardware and the implementation. Additionally it is a good predictor of the computational complexity of an algorithm.
 
-## Dataset properties
+## Dataset properties :bar_chart:
 
 In order to explore the relationship between array formation and algorithm efficency, a wide variety of data is needed. Working with the [Kaggle Api](https://www.kaggle.com/docs/api) gives us a way to fetch realistic data in a fast and automated way. Taking Data from a Datascience platform has the advantage that the columns are not arranged in a random way. For instance: Numbers can correlate with other sorted columns, which can make them "almost" sorted. This results in diverse ranges and combinations of presortedness kinds. To be able to characterize different kinds of presortedness we have to define it formally:
 
