@@ -108,3 +108,17 @@ def max_dist_inversion(arr):
 
 ### INV_DIS(X) / Number of Inversions combined with Maximum Distance of inversion
 Minimum number of inversions in X and maximum distance of an inversion can easily be combined:
+
+```python
+def inv_dis(arr):
+    c_max_dist = 0
+    inv = 0
+    
+    for key in range(len(arr)):
+        for j in range(key):
+            if arr[key] < arr[j]:
+                c_max_dist = max(key-j,c_max_dist)
+                inv += 1
+
+    return inv, c_max_dist
+```
