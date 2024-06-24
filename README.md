@@ -5,6 +5,36 @@ Results:
 - [Predicting Algorithms given all presortedness metrics of full array](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel_fullArray.ipynb)
 - [Predicting Algorithms minimizing amount of comparisons needed for sorting + presortedness calculation](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/MLModels/NNModel_dynamic%20(1).ipynb)
 
+## Generic Workflow :clipboard:
+
+In order to have a model predict a comparison-optimal sorting algorithm for not fully random data we have to:
+
+### 1. Sorting algorithm selection
+We have to chose a number of decent sorting algorithms that can all be good in different situations. The more clear cut their strengths are, the easier it is for the model to select the right algorithm resulting in a higher prediction accuracy.
+
+### 2. Data
+Next we have to acquire large quantities of data. It is beneficial for us if the data has a lot of characteristics to it that can be predicted by only looking at a few samples in the data partition. Therefore the data cannot be fully random. A datascience data collection is ideal for this task.
+
+### 3. Feature engineering
+For the model to efficiently classify the data we need a way to summarize the data into information-rich metrics. Presortedness metrics are very suitable for the characterization of the data sortedness.
+
+### 4. Model
+After the creation of a training set, we have to chose a machine learning model. Neural networks fit the requirements, because they are good at recognizing complex relationships and are flexible enough.
+
+### 5. Optimization
+Finally we can get to optimizing all the variables influencing the final model. The most important ones are:
+
+	- sampling strategy
+		how the numbers are chosen that we analyse
+	- presortedness combinations
+		which presortedness metrics do we analyse
+	- sampling size
+		how many numbers do we analyse
+	- hyperparameters
+		how many layers, with what layersize do we chose
+
+Optimizing everything at once would be too computationally expensive. That is why we had to optimize them one by one with a strategic approach.
+
 ## Optimality of a sorting algorithm :100:
 
 The efficiency of a sorting algorithm can be captured from multiple different angles. The fastest might not always be the first choice, since there are other important measures of an algorithm, such as memory complexity, stability or wheter an algorithm can handle a constant stream of input or not. The time complexity is hard to inspect, because there are many factors playing into it: the type of data, the size of the data, the cost of comparing and swapping values, the hardware etc. Another aspect which makes it hard to investigate the time complexity is the implementation of the algorithm. Comparing any self-implemented sorting algorithm (can be the most efficient one) in python to the .sort() function that uses timsort does not make sense, since timsort will outperform by a large margin. This is due to the fact that the .sort() function is written in C, highly optimized and doesn't have to be interpreted line-by-line (see [here](https://github.com/DavidRichardGit/Presortedness-ML/blob/main/pythonTimsort%20(2).ipynb)).
